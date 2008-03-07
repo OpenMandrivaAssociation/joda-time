@@ -35,15 +35,12 @@ Version:        1.5.2
 Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Java date and time API
-
 Group:          Development/Java
 License:        Apache License
 URL:            http://www.joda.org/
 Source0:        http://prdownloads.sourceforge.net/joda-time/joda-time-1.5.2-src.tar.gz
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
-Distribution:   JPackage
-Vendor:         JPackage Project
 
 BuildArch:      noarch
 BuildRequires:  jpackage-utils >= 0:1.6
