@@ -32,7 +32,7 @@
 
 Name:           joda-time
 Version:        1.5.2
-Release:        %mkrel 0.0.3
+Release:        %mkrel 0.0.4
 Epoch:          0
 Summary:        Java date and time API
 Group:          Development/Java
