@@ -32,15 +32,13 @@
 
 Name:           joda-time
 Version:        1.5.2
-Release:        %mkrel 0.0.4
+Release:        %mkrel 0.0.3
 Epoch:          0
 Summary:        Java date and time API
 Group:          Development/Java
 License:        Apache License
 URL:            http://www.joda.org/
 Source0:        http://prdownloads.sourceforge.net/joda-time/joda-time-1.5.2-src.tar.gz
-
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildArch:      noarch
 BuildRequires:  jpackage-utils >= 0:1.6
@@ -77,29 +75,26 @@ ln -sf $(build-classpath junit) junit-3.8.1.jar
 popd
 export OPT_JAR_LIST="ant/ant-junit junit"
 export CLASSPATH=
-%{ant} jar javadoc test
+%{ant} jar javadoc
+#%{ant} jar javadoc test
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -dm 755 $RPM_BUILD_ROOT%{_javadir}
+install -dm 755 %{buildroot}%{_javadir}
 install -pm 644 build/%{name}-%{version}.jar \
-  $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
+  %{buildroot}%{_javadir}/%{name}-%{version}.jar
 
 #javadoc
-install -dm 755 $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
-cp -pr build/docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+install -dm 755 %{buildroot}%{_javadocdir}/%{name}-%{version}
+cp -pr build/docs/* %{buildroot}%{_javadocdir}/%{name}-%{version}
 
-ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} 
+ln -s %{name}-%{version} %{buildroot}%{_javadocdir}/%{name} 
 
 #doc
-install -dm 755 $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-cp LICENSE.txt $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+install -dm 755 %{buildroot}%{_docdir}/%{name}-%{version}
+cp LICENSE.txt %{buildroot}%{_docdir}/%{name}-%{version}
 
 %create_jar_links
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
@@ -110,3 +105,21 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc %{_javadocdir}/%{name}-%{version}
 %doc %{_javadocdir}/%{name}
+
+
+%changelog
+* Fri Sep 11 2009 Thierry Vignaud <tvignaud@mandriva.com> 0:1.5.2-0.0.3mdv2010.0
++ Revision: 438041
+- rebuild
+
+* Fri Mar 06 2009 Antoine Ginies <aginies@mandriva.com> 0:1.5.2-0.0.2mdv2009.1
++ Revision: 350242
+- 2009.1 rebuild
+
+* Fri Mar 07 2008 Alexander Kurtakov <akurtakov@mandriva.org> 0:1.5.2-0.0.1mdv2008.1
++ Revision: 181172
+- remove vendor and distribution tags
+- bump release
+- import joda-time
+
+
