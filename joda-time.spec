@@ -19,12 +19,12 @@ BuildRequires:    exec-maven-plugin
 
 
 %description
-Joda-Time provides a quality replacement for the Java date and time classes. The
-design allows for multiple calendar systems, while still providing a simple API.
-The 'default' calendar is the ISO8601 standard which is used by XML. The
-Gregorian, Julian, Buddhist, Coptic, Ethiopic and Islamic systems are also
-included, and we welcome further additions. Supporting classes include time
-zone, duration, format and parsing.
+Joda-Time provides a quality replacement for the Java date and time classes.
+The design allows for multiple calendar systems, while still providing a
+simple API. The 'default' calendar is the ISO8601 standard which is used by
+XML. The Gregorian, Julian, Buddhist, Coptic, Ethiopic and Islamic systems
+are also included, and we welcome further additions. Supporting classes
+include time zone, duration, format and parsing.
 
 
 %package javadoc
