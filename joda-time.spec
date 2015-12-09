@@ -1,11 +1,11 @@
 %{?_javapackages_macros:%_javapackages_macros}
-%global tzversion tzdata2013g
+%global tzversion tzdata2015g
 
 Name:             joda-time
-Version:          2.3
-Release:          1.%{tzversion}.1%{?dist}
+Version:          2.9.1
+Release:          1.%{tzversion}.1
 Summary:          Java date and time API
-
+Group:		  Development/Java
 License:          ASL 2.0
 URL:              http://joda-time.sourceforge.net
 Source0:          http://downloads.sourceforge.net/%{name}/%{name}-%{version}-dist.tar.gz
@@ -49,6 +49,9 @@ tar -xzf %{SOURCE1} -C src/main/java/org/joda/time/tz/src/
 
 # compat filename
 %mvn_file : %{name}
+
+# javadoc generation fails due to strict doclint in JDK 8
+%pom_remove_plugin :maven-javadoc-plugin
 
 %build
 %mvn_build
