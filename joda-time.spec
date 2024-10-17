@@ -7,7 +7,7 @@ Release:          1.%{tzversion}.1
 Summary:          Java date and time API
 Group:		  Development/Java
 License:          ASL 2.0
-URL:              http://joda-time.sourceforge.net
+URL:              https://joda-time.sourceforge.net
 Source0:          http://downloads.sourceforge.net/%{name}/%{name}-%{version}-dist.tar.gz
 Source1:          ftp://ftp.iana.org/tz/releases/%{tzversion}.tar.gz
 BuildArch:        noarch
